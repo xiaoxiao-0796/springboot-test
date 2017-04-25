@@ -7,6 +7,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 /**
  * Created by xiaofei
@@ -14,7 +15,7 @@ import javax.persistence.Id;
  */
 @Data
 @Entity
-public class User {
+public class User implements Serializable{
 
     @Id
     @GeneratedValue
@@ -26,5 +27,11 @@ public class User {
 
     @Column(name = "passwd")
     private String passwd;
+
+    public User(){}
+    public User(String name ,String passwd){
+        this.name = name;
+        this.passwd = passwd;
+    }
 
 }

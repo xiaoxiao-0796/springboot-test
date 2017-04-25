@@ -6,7 +6,10 @@ import com.xiaofei.service.UserService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.List;
@@ -28,10 +31,20 @@ public class MyApplicationTest {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    @Qualifier("primaryJdbcTemplate")
+    JdbcTemplate primaryJdbcTemplate;
+
+    @Test
+    public void jdbc1(){
+        List<User> users = primaryJdbcTemplate.query("select * from user", BeanPropertyRowMapper.newInstance(User.class));
+        System.out.println(users);
+    }
+
     @Test
     public void create(){
         User user = new User();
-        user.setName("xaipo");
+        user.setName("xao");
         user.setPasswd("8109");
         userService.create(user);
     }

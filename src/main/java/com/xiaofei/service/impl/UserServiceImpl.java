@@ -4,6 +4,7 @@ import com.xiaofei.model.User;
 import com.xiaofei.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -20,6 +21,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
+    @Qualifier("primaryJdbcTemplate")
     JdbcTemplate jdbcTemplate;
 
     @Override
