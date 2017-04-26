@@ -21,7 +21,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
     @Autowired
-    @Qualifier("primaryJdbcTemplate")
+//    @Qualifier("primaryJdbcTemplate") //多数据源使用
     JdbcTemplate jdbcTemplate;
 
     @Override

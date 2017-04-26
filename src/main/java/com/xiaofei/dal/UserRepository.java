@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 /**
+ * 使用data-jpa
  * Created by xiaofei
  * Created at 2017/4/24.
  */
