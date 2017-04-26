@@ -1,11 +1,9 @@
 package com.xiaofei.web;
 
 import com.xiaofei.model.User;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import springfox.documentation.annotations.ApiIgnore;
 
@@ -15,6 +13,7 @@ import springfox.documentation.annotations.ApiIgnore;
  */
 @Controller
 @ApiIgnore
+@Slf4j
 public class HelloController {
 
 
@@ -42,7 +41,8 @@ public class HelloController {
     }
 
     @RequestMapping(value = "/dologin" ,method = RequestMethod.POST)
-    public String doLogin(){
+    public String doLogin(@ModelAttribute("form") User user){
+        log.info("user"+user);
        return "index";
     }
 
