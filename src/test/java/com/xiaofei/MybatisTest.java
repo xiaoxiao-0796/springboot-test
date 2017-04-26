@@ -2,6 +2,7 @@ package com.xiaofei;
 
 import com.xiaofei.mapper.UserMapper;
 import com.xiaofei.model.User;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +19,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
  */
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
+@Slf4j
 public class MybatisTest {
 
     @Autowired
@@ -33,6 +35,7 @@ public class MybatisTest {
 
     @Test
     public void test2(){
+        log.info("96678");
         User user = userMapper.selectById(2);
         Assert.assertEquals("8109",user.getPasswd());
     }

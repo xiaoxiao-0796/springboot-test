@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(value = RuntimeException.class)
+    @ExceptionHandler(value = Throwable.class)
     public ModelAndView errorhandler(HttpServletRequest request,Exception e){
         ModelAndView modelAndView = new ModelAndView("error");
         modelAndView.addObject("msg",e.getMessage());

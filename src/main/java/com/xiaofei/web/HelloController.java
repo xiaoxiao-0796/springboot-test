@@ -1,7 +1,9 @@
 package com.xiaofei.web;
 
+import com.xiaofei.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
@@ -28,4 +30,21 @@ public class HelloController {
         modelAndView.addObject("name","XiaoFei");
         return modelAndView;
     }
+
+    @RequestMapping("/")
+    public String index(){
+        return "index";
+    }
+
+    @RequestMapping("/login")
+    public String login() {
+        return "login";
+    }
+
+    @RequestMapping(value = "/dologin" ,method = RequestMethod.POST)
+    public String doLogin(){
+       return "index";
+    }
+
+
 }
