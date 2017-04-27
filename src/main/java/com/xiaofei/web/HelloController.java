@@ -23,7 +23,7 @@ public class HelloController {
         return "Hello world "+System.currentTimeMillis();
      }
 
-    @RequestMapping("/show")
+    @RequestMapping(value = "/show" ,method = RequestMethod.GET)
     public ModelAndView show(){
         ModelAndView modelAndView = new ModelAndView("show");
         modelAndView.addObject("name","XiaoFei");
@@ -40,10 +40,9 @@ public class HelloController {
         return "login";
     }
 
-    @RequestMapping(value = "/dologin" ,method = RequestMethod.POST)
-    public String doLogin(@ModelAttribute("form") User user){
-        log.info("user"+user);
-       return "index";
+    @RequestMapping(value = "/login" ,method = RequestMethod.PUT)
+    public String dologin(User user) {
+        return "show";
     }
 
 

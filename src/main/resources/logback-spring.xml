@@ -28,12 +28,12 @@
     </appender>
 
 
-    <springProfile name="dev"><!--对应spring.profiles.active=dev-->
-        <!-- 输出到控制台和文件，可定义更多的 Appender -->
+   <!-- <springProfile name="dev">&lt;!&ndash;对应spring.profiles.active=dev&ndash;&gt;
+        &lt;!&ndash; 输出到控制台和文件，可定义更多的 Appender &ndash;&gt;
         <root level="info">
             <appender-ref ref="STDOUT"/>
         </root>
-    </springProfile>
+    </springProfile>-->
 
     <springProfile name="test">
         <!-- 输出到控制台和文件，可定义更多的 Appender -->

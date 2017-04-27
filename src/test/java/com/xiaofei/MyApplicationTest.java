@@ -8,6 +8,7 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.cache.CacheManager;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -38,6 +39,9 @@ public class MyApplicationTest {
 //    @Qualifier("primaryJdbcTemplate")
     JdbcTemplate primaryJdbcTemplate;
 
+    @Autowired
+    private CacheManager cacheManager;
+
     @Test
     public void jdbc1(){
         List<User> users = primaryJdbcTemplate.query("select * from user", BeanPropertyRowMapper.newInstance(User.class));
@@ -62,6 +66,15 @@ public class MyApplicationTest {
         userRepository.save(new User("xiao444","xaio4"));
         List<User> user = userRepository.findByName("xaio");
         System.out.println("use="+user);
+    }
+
+    @Test
+    public void query2(){
+        userRepository.save(new User("test1","123456"));
+        List<User> test = userRepository.findByName("test1");
+        System.out.println("第一次查询："+test);
+        List<User> test1 = userRepository.findByName("test1");
+        System.out.println("第二次查询："+test1);
     }
 
 
