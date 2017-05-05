@@ -75,6 +75,10 @@ public class MyApplicationTest {
         System.out.println("第一次查询："+test);
         List<User> test1 = userRepository.findByName("test1");
         System.out.println("第二次查询："+test1);
+        userRepository.save(new User("test1","654321"));
+        List<User> test2 = userRepository.findByName("test1");
+        System.out.println("第三次查询："+test1);
+
     }
 
 
