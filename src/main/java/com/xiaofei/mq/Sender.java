@@ -14,7 +14,7 @@ import java.util.Date;
 import java.util.UUID;
 
 /**
- * MQ消息生产者
+ * MQ
  * <p>
  * 方法描述列表
  * </p>

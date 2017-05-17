@@ -1,11 +1,16 @@
 package com.xiaofei;
 
+import com.xiaofei.stateMachine.enums.Events;
+import com.xiaofei.stateMachine.enums.States;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.statemachine.StateMachine;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -33,4 +38,5 @@ public class MyApplication {
     public static void main(String[] args) {
         SpringApplication.run(MyApplication.class,args);
     }
+
 }
